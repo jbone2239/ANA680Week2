@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Predictor</title>
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a3f5f;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-left: 6px solid #2196F3;
+            border-radius: 6px;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Breast Cancer Prediction</h2>
+        <form method="POST" action="/predict">
+            <label>Clump Thickness:</label>
+            <input type="number" name="clump_thickness" required>
+
+            <label>Uniformity of Cell Size:</label>
+            <input type="number" name="uniformity_of_cell_size" required>
+
+            <label>Uniformity of Cell Shape:</label>
+            <input type="number" name="uniformity_of_cell_shape" required>
+
+            <label>Marginal Adhesion:</label>
+            <input type="number" name="marginal_adhesion" required>
+
+            <label>Single Epithelial Cell Size:</label>
+            <input type="number" name="single_epithelial_cell_size" required>
+
+            <label>Bare Nuclei:</label>
+            <input type="number" name="bare_nuclei" required>
+
+            <label>Bland Chromatin:</label>
+            <input type="number" name="bland_chromatin" required>
+
+            <label>Normal Nucleoli:</label>
+            <input type="number" name="normal_nucleoli" required>
+
+            <label>Mitoses:</label>
+            <input type="number" name="mitoses" required>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <strong>Prediction:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
