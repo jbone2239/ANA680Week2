@@ -2,6 +2,9 @@ flask
 scikit-learn
 ucimlrepo
 gunicorn
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 7d8a058e45fc86859bf735bdee87bf6a668a250a
